@@ -512,7 +512,7 @@ begin
                 if AddQuality then begin
                     QualStr := FormatFloat('0.###', ContItem.Quality);
                     { Force the point as decimal separator }
-                    {$IF Defined(VER240) or Defined(VER250) or Defined(VER260)}
+                    {$IF Defined(VER240) or Defined(VER250) or Defined(VER260) or (CompilerVersion>=24)}
                       if FormatSettings.DecimalSeparator <> '.' then
                       begin
                           DecPos := Pos(FormatSettings.DecimalSeparator, QualStr);
@@ -520,7 +520,7 @@ begin
                               QualStr[DecPos] := '.';
                       end;
                     {$IFEND}
-                    {$IF not Defined(VER240) and not Defined(VER250) and not Defined(VER260) and not Defined(VER270) and not Defined(VER280)}
+                    {$IF not Defined(VER240) and not Defined(VER250) and not Defined(VER260) and not Defined(VER270) and not Defined(VER280) and (CompilerVersion<24)}
                     if DecimalSeparator <> '.' then
                     begin
                         DecPos := Pos(DecimalSeparator, QualStr);

@@ -1373,7 +1373,7 @@ end;
 
 procedure _FreeAndNil(var Obj);
 begin
-    SysUtils.FreeAndNil(Obj);
+    SysUtils.FreeAndNil(TObject(Obj));
 end;
 
 function _DeleteFile(const FileName: String): Boolean;

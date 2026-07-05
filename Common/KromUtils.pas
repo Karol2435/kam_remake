@@ -59,8 +59,10 @@ function Max(const A,B,C: single):single; overload;
   procedure SwapInt(var A, B: Integer); overload;
   procedure SwapInt(var A, B: Cardinal); overload;
   {$IFDEF WDC}
+  {$IFNDEF WIN32}
   procedure SwapInt(var A, B: NativeUInt); overload;
-  {$ENDIF}
+{$ENDIF}
+    {$ENDIF}
   procedure SwapFloat(var A, B: Single);
   function Equals(A, B: single; const Epsilon: single = 0.001): Boolean;
 
@@ -463,11 +465,13 @@ begin
 end;
 
 {$IFDEF WDC}
+{$IFNDEF WIN32}
 procedure SwapInt(var A,B: NativeUInt);
 var s:NativeUInt;
 begin
   s:=A; A:=B; B:=s;
 end;
+{$ENDIF}
 {$ENDIF}
 
 procedure SwapFloat(var A,B:single);

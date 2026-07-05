@@ -1,0 +1,22 @@
+# Delphi IDE / build artifacts (added zad. 0.7/gate-0 cleanup, 2026-07-05)
+*.dcu
+*.exe
+*.map
+*.drc
+*.dsk
+*.identcache
+*.local
+*.tvsconfig
+*.stat
+*.~*
+_history/
+__history/
+__recovery/
+dcu/
+
+# KaM Remake generated runtime data (not part of source)
+Logs/
+Saves/
+
+# Local build script output (see build_local.bat)
+build_local_output.txt

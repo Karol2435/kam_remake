@@ -1156,13 +1156,13 @@ var
     SName: ShortString;
   begin
     L := 0;
-    J := S[0];
+    J := tbtChar(S[0]);
     H := KEYWORD_COUNT-1;
     while L <= H do
     begin
       I := (L + H) shr 1;
       SName := LookupTable[i].Name;
-      if J = SName[0] then
+      if J = tbtChar(SName[0]) then
       begin
         if S = SName then
         begin
@@ -1221,7 +1221,7 @@ var
           while p^<>#0 do
           begin
             if p^ in [#97..#122] then
-              Dec(Byte(p^), 32);
+          p^ := AnsiChar(Byte(p^) - 32);
             inc(p);
           end;
           if not CheckReserved(FLastUpToken, CurrTokenId) then
